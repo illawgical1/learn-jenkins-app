@@ -20,7 +20,7 @@ pipeline {
                     node --version
                     npm --version
                     npm ci
-                    npm run build
+                    CI= npm run build
                     ls -la
                 '''
             }
@@ -52,7 +52,6 @@ pipeline {
                   node_modules/.bin/netlify --version
                   echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
                   node_modules/.bin/netlify status
-                  CI= npm run build
                   node_modules/.bin/netlify deploy --dir=build --prod
                 '''
             }
