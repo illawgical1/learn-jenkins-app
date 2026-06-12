@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        CI = 'false'
         NETLIFY_SITE_ID = 'f6d7589b-a44f-42ed-bda6-5efa89f22717'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
@@ -21,7 +20,7 @@ pipeline {
                     node --version
                     npm --version
                     npm ci
-                    CI=false npm run build
+                    npm run build
                     ls -la
                 '''
             }
